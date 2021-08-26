@@ -23,7 +23,11 @@ const VoteHomeView = ({ votes }: VoteHomeViewProps) => {
         `}
       >
         <h1>선거 목록</h1>
-        <p>{activeVoteCount}개의 선거가 진행 중입니다.</p>
+        <p>
+          {activeVoteCount > 0
+            ? `${activeVoteCount}개의 선거에 참여할 수 있습니다.`
+            : '참여할 수 있는 선거가 없습니다.'}
+        </p>
       </div>
       <VoteCardList votes={votes} />
     </ViewLayout>

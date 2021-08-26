@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import oc from 'open-color';
 
-export type VoteCardStatus = 'opened' | 'closed' | 'suspended';
+export type VoteCardStatus = 'opened' | 'closed' | 'suspended' | 'voted';
 
 interface VoteCardStatusChipProps {
   status: VoteCardStatus;
@@ -17,6 +17,8 @@ const VoteCardStatusChip = ({ status, ...props }: VoteCardStatusChipProps) => {
         return '종료됨';
       case 'suspended':
         return '정지됨';
+      case 'voted':
+        return '투표함';
     }
   }, [status]);
 

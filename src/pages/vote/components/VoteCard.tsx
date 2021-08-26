@@ -20,6 +20,7 @@ const VoteCard = ({ vote, ...props }: VoteCardProps) => {
     endTimestamp,
     isSuspended,
     isOpened,
+    isVoted,
   } = vote;
 
   const [startDate, endDate] = React.useMemo(() => {
@@ -29,6 +30,9 @@ const VoteCard = ({ vote, ...props }: VoteCardProps) => {
   }, [startTimestamp, endTimestamp]);
 
   const status = React.useMemo((): VoteCardStatus => {
+    if (isVoted) {
+      return 'voted';
+    }
     if (isSuspended) {
       return 'suspended';
     }
@@ -36,7 +40,7 @@ const VoteCard = ({ vote, ...props }: VoteCardProps) => {
       return 'opened';
     }
     return 'closed';
-  }, [isOpened, isSuspended]);
+  }, [isOpened, isSuspended, isVoted]);
 
   return (
     <div

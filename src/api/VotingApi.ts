@@ -22,6 +22,7 @@ export interface VoteItem {
   endTimestamp: Date;
   isSuspended: boolean;
   isOpened: boolean;
+  isVoted: boolean;
 }
 
 type VotesResponse = VoteItem[];

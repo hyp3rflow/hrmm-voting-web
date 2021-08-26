@@ -20,8 +20,6 @@ const PageLayout = React.forwardRef<HTMLDivElement, PageLayoutProps>(
           flex: 1;
           align-items: center;
           justify-content: center;
-
-          background-color: #000;
         `}
         ref={ref}
         {...props}
@@ -31,9 +29,9 @@ const PageLayout = React.forwardRef<HTMLDivElement, PageLayoutProps>(
             display: flex;
             position: relative;
             flex-direction: column;
-            background-color: ${ColorPalette.BLACK};
             overflow-x: auto;
             width: 100%;
+            max-width: 1440px;
             height: 100%;
             min-height: ${height ? `${height}px` : '100vh'};
             padding-bottom: calc(env(safe-area-inset-bottom, 0));

@@ -1,14 +1,9 @@
 import React from 'react';
 
-import PageLayout from 'components/base/PageLayout';
-import GnbHeader from 'components/base/GnbHeader';
+import HomeContainer from './HomeContainer';
 
 const IndexPage = () => {
-  return (
-    <PageLayout topbar={<GnbHeader />}>
-      <div>Hi!</div>
-    </PageLayout>
-  );
+  return <HomeContainer />;
 };
 
 export default IndexPage;

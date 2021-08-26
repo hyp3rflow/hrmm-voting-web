@@ -1,7 +1,7 @@
 import { Global, css } from '@emotion/react';
 import React from 'react';
 
-import { BREAKPOINT_MEDIUM } from 'constants/breakpoints';
+import { BREAKPOINT_MEDIUM, BREAKPOINT_SMALL } from 'constants/breakpoints';
 import { ColorPalette } from 'utils/ColorUtils';
 
 const GlobalStyle = () => (

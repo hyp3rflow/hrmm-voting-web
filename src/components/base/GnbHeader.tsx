@@ -13,33 +13,56 @@ const GnbHeader = () => {
         top: 0;
 
         display: flex;
+        align-items: center;
         justify-content: space-between;
         margin: 24px;
       `}
     >
-      <Link href="/">
-        <div
-          css={css`
-            display: flex;
-            cursor: pointer;
-          `}
-        >
-          <h2
-            css={css`
-              font-weight: 900;
-            `}
-          >
-            hrmm.xyz
-          </h2>
+      <div
+        css={css`
+          display: flex;
+          align-items: center;
+        `}
+      >
+        <Link href="/">
           <div
             css={css`
-              font-weight: 600;
+              display: flex;
+              cursor: pointer;
             `}
           >
-            voting
+            <h2
+              css={css`
+                font-weight: 900;
+              `}
+            >
+              hrmm.xyz
+            </h2>
           </div>
+        </Link>
+        <div
+          css={css`
+            margin-left: 24px;
+            font-size: 1.125rem;
+            font-weight: 600;
+          `}
+        >
+          <Link href="/vote">
+            <a
+              css={css`
+                padding: 8px 16px;
+                border-radius: 999px;
+                transition: background-color 0.2s ease;
+                &:hover {
+                  background-color: ${oc.gray[2]};
+                }
+              `}
+            >
+              투표
+            </a>
+          </Link>
         </div>
-      </Link>
+      </div>
       <div>
         <Link href="/login">
           <LoginButton />

@@ -1,6 +1,11 @@
-import { AxiosPromise, AxiosResponse } from 'axios';
+import { AxiosPromise } from 'axios';
 
 import { createAxiosInstance } from 'api/BaseApi';
+
+interface User {
+  studentNumber: string;
+  userId: string;
+}
 
 interface VoteResponse {
   vote: {
@@ -25,16 +30,27 @@ export interface VoteItem {
   isVoted: boolean;
 }
 
+type VoteInformationResponse = VoteItem;
+
 type VotesResponse = VoteItem[];
 
 export interface CandidateItem {
   id: number;
   name: string;
+  description: string;
 }
 
 type CandidateResponse = CandidateItem[];
 
 class VotingApi {
+  getUser(): AxiosPromise<User> {
+    return createAxiosInstance().get('api/user');
+  }
+
+  getVoteInformation(voteId: number): AxiosPromise<VoteInformationResponse> {
+    return createAxiosInstance().get(`api/vote/${voteId}`);
+  }
+
   vote(voteId: number, candidateId: number): AxiosPromise<VoteResponse> {
     return createAxiosInstance().post('api/vote', { voteId, candidateId });
   }

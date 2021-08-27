@@ -3,9 +3,13 @@ import { css } from '@emotion/react';
 import oc from 'open-color';
 import Link from 'next/link';
 
+import useUser from 'hooks/useUser';
+
 import LoginButton from './LoginButton';
 
 const GnbHeader = () => {
+  const { data: user } = useUser();
+
   return (
     <div
       css={css`
@@ -64,9 +68,13 @@ const GnbHeader = () => {
         </div>
       </div>
       <div>
-        <Link href="/login">
-          <LoginButton />
-        </Link>
+        {user ? (
+          `${user.userId}님`
+        ) : (
+          <Link href="/login">
+            <LoginButton />
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -32,7 +32,7 @@ const VoteCardStatusChip = ({ status, ...props }: VoteCardStatusChipProps) => {
           display: flex;
           align-items: center;
           font-weight: 700;
-          font-size: 0.925rem;
+          font-size: 1.25rem;
         `,
         status === 'opened'
           ? css`

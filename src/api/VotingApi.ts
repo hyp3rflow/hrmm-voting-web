@@ -2,7 +2,7 @@ import { AxiosPromise } from 'axios';
 
 import { createAxiosInstance } from 'api/BaseApi';
 
-interface User {
+export interface User {
   studentNumber: string;
   userId: string;
 }

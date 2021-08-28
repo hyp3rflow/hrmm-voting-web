@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router';
 import React from 'react';
 
+import PrivatePage from 'components/guard/PrivatePage';
+
 import VoteContainer from './VoteContainer';
 
 const VotePage = () => {
@@ -14,7 +16,11 @@ const VotePage = () => {
     return Number.parseInt(id);
   }, [id]);
 
-  return <VoteContainer voteId={voteId} />;
+  return (
+    <PrivatePage>
+      <VoteContainer voteId={voteId} />
+    </PrivatePage>
+  );
 };
 
 export default VotePage;

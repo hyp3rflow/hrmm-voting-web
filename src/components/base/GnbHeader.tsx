@@ -51,20 +51,22 @@ const GnbHeader = () => {
             font-weight: 600;
           `}
         >
-          <Link href="/vote">
-            <a
-              css={css`
-                padding: 8px 16px;
-                border-radius: 999px;
-                transition: background-color 0.2s ease;
-                &:hover {
-                  background-color: ${oc.gray[2]};
-                }
-              `}
-            >
-              투표
-            </a>
-          </Link>
+          {user && (
+            <Link href="/vote">
+              <a
+                css={css`
+                  padding: 8px 16px;
+                  border-radius: 999px;
+                  transition: background-color 0.2s ease;
+                  &:hover {
+                    background-color: ${oc.gray[2]};
+                  }
+                `}
+              >
+                투표
+              </a>
+            </Link>
+          )}
         </div>
       </div>
       <div>

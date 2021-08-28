@@ -1,10 +1,10 @@
-import { useQuery } from 'react-query';
+import { QueryOptions, useQuery } from 'react-query';
 import { useRouter } from 'next/router';
 
 import { getUserQueryKey } from 'queryKey';
-import VotingApi from 'api/VotingApi';
+import VotingApi, { User } from 'api/VotingApi';
 
-const useUser = () => {
+const useUser = (options?: QueryOptions<User | null, Error>) => {
   const router = useRouter();
 
   return useQuery(
@@ -19,8 +19,10 @@ const useUser = () => {
     {
       onError: () => {
         alert('로그인 정보가 만료되었습니다. 다시 로그인해주세요.');
+        window.localStorage.removeItem('accessToken');
         router.push('/login');
       },
+      ...options,
     }
   );
 };
